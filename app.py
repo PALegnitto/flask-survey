@@ -20,4 +20,14 @@ def start_survey():
 @app.post("/begin")
 def go_to_questions():
 
-    return redirect("/questions/0")
+    return redirect("/question/0")
+
+
+
+@app.get("/question/<int:id>")
+def surface_question(id):
+
+    question = survey.questions[id]
+
+
+    return render_template("question.html", question = question) 
